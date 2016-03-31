@@ -34,6 +34,8 @@ public class UserServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		UserService userService = new UserServiceImpl();
 		List<User> users = userService.getUser();
+		request.setAttribute("userList", users);
+		request.getRequestDispatcher("WEB-INF/lib/userList.jsp").forward(request, response);
 	}
 
 	/**
